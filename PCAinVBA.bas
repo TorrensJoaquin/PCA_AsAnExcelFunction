@@ -76,8 +76,6 @@ Function PerformPCA(AR As Range, LowDimension)
     PerformPCA = C
 End Function
 Private Function fmMult(A As Variant, B As Variant) As Variant
-    'Assumes that A,B are 1-based variant arrays
-
     Dim m As Long, n As Long, p As Long, i As Long, j As Long, k As Long
     Dim C As Variant
 
