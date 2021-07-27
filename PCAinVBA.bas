@@ -65,7 +65,7 @@ Function PerformPCA(AR As Range, LowDimension)
         E = fmMult(E, C) ' E: Eigenvectors
     Next iter
     ''Perform de Dimensionality Reduction
-    ReDim C(0 To p, 0 To 1)
+    ReDim C(0 To p, 0 To LowDimension - 1)
     For i = 0 To p
         For j = 0 To m
             For k = 0 To LowDimension - 1
