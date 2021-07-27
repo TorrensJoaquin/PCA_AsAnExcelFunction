@@ -1,4 +1,4 @@
-Function PerformPCA(AR As Range, LowDimension)
+Function PerformPCA(AR As Range, Optional LowDimension = 2, Optional Iterations = 1)
     ''Data Normalization
     A = reindexRange(AR)
     Dim m As Long, n As Long, p As Long, i As Long, j As Long, k As Long, iter As Long
@@ -41,7 +41,7 @@ Function PerformPCA(AR As Range, LowDimension)
     Dim mRows As Long, nCols As Long
     R = createIdentity(m + 1, m + 1)
     E = createIdentity(m + 1, m + 1)
-    For iter = 0 To 1000
+    For iter = 0 To Iterations
         C = fmMult(R, C) ' A=R*Q
         For j = 0 To m
             R(j, j) = 0
