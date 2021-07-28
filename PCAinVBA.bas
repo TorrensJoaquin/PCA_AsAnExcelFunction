@@ -78,18 +78,9 @@ End Function
 Private Function fmMult(A As Variant, B As Variant) As Variant
     Dim m As Long, n As Long, p As Long, i As Long, j As Long, k As Long
     Dim C As Variant
-
-    If TypeName(A) = "Range" Then A = A.Value
-    If TypeName(B) = "Range" Then B = B.Value
-
     m = UBound(A, 1)
     p = UBound(A, 2)
-    If UBound(B, 1) <> p Then
-        MatrixProduct = "Not Defined!"
-        Exit Function
-    End If
     n = UBound(B, 2)
-
     ReDim C(0 To m, 0 To n)
     For i = 0 To m
         For j = 0 To n
