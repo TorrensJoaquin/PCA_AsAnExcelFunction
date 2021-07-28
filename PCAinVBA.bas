@@ -40,7 +40,6 @@ Function PerformPCA(AR As Range, Optional LowDimension = 2, Optional Iterations 
     ''PCA
     Dim mRows As Long, nCols As Long
     R = createIdentity(m + 1, m + 1)
-    E = createIdentity(m + 1, m + 1)
     For iter = 0 To Iterations
         C = fmMult(R, C) ' A=R*Q
         For j = 0 To m
@@ -62,8 +61,9 @@ Function PerformPCA(AR As Range, Optional LowDimension = 2, Optional Iterations 
                 Next
             Next
         Next
-        E = fmMult(E, C) ' E: Eigenvectors
     Next iter
+    E = createIdentity(m + 1, m + 1)
+    E = fmMult(E, C) ' E: Eigenvectors
     ''Perform de Dimensionality Reduction
     ReDim C(0 To p, 0 To LowDimension - 1)
     For i = 0 To p
